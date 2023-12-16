@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public abstract class AbstractObj implements HumanAble {
+public abstract class AbstractObj {
     public String name;
 
     public AbstractObj(){
