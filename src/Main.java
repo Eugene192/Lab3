@@ -22,17 +22,28 @@ public class Main {
         locatioun2.setType(Places.Bathroom);
         System.out.println();
 
+        Obj door = new Obj("Дверь");
+        System.out.println();
+
+        Obj water = new Obj("Наводнение");
+        System.out.println();
+
 
         //Действия
-        boy.open( locatioun1.getPlace());
+        boy.open(locatioun1);
+        door.doSomeThing(Status.Open);
         karlson.meaning();
+        water.doSomeThing(Status.Starting);
+        System.out.println();
 
         while (Time != TimeLimit){
-            locatioun1.levelOfWater(locatioun2.getPlace(), (Time));
-            karlson.wantToJump(locatioun1.getPlace(), locatioun2.getPlace(), Time);
+            locatioun1.levelOfWater(locatioun2, (Time));
+            karlson.wantToJump(locatioun1, locatioun2, Time);
             karlson.jump(Time);
             if (Time == (TimeLimit-1)){
                 System.out.println("Уровень воды заполнен");
+                water.doSomeThing(Status.Ending);
+
             }
             else{
                 System.out.println("Уровень воды возрастает");
